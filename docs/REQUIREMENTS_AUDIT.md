@@ -15,7 +15,7 @@
 | README and reproducible database | Completed: setup commands, migrations, and seeder included. |
 | Real screenshots and report | Eight figures captured; separate report based on provided reference. |
 | AI conversation or integration | Not required by handout; none fabricated. |
-| GitHub source link | Prepared for publication and remote verification; see README link. |
+| GitHub source link | Published public repository; remote source and commit verified. See README link. |
 | Hosted working application link | Unmet handout item; omitted under explicit GitHub-only instruction. |
 
 ## Submission checklist
