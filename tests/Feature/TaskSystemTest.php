@@ -50,7 +50,7 @@ class TaskSystemTest extends TestCase
         }
         $this->get('/tasks')->assertSeeInOrder(Task::orderBy('task_date')->orderBy('id')->pluck('title')->all());
         $this->travel(1)->minutes();
-        $this->get('/')->assertSee('Receive new cleaning concentrate')->assertDontSee('Sanitize the refill dispensers');
+        $this->get('/')->assertSee('Receive solar panels for Del Rosario Learning Center')->assertDontSee('Complete roof survey for Santos Family Residence');
     }
 
     public function test_reseeding_and_empty_states(): void

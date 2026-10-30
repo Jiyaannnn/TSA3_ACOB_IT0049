@@ -39,15 +39,15 @@ class DatabaseSeeder extends Seeder
         }
         // Relative dates guarantee today's view has sample tasks after a fresh seed.
         $entries = [
-            ['Sanitize the refill dispensers', 'completed', 0],
-            ['Check bulk soap and detergent levels', 'pending', 0],
-            ['Prepare customer refill orders', 'in progress', 0],
-            ['Record returned containers', 'pending', 0],
-            ['Calibrate counter scales', 'completed', -1],
-            ['Reconcile refill sales', 'completed', -1],
-            ['Receive new cleaning concentrate', 'pending', 1],
-            ['Print batch and expiry labels', 'pending', 1],
-            ['Review container reuse totals', 'pending', 2],
+            ['Complete roof survey for Santos Family Residence', 'completed', 0],
+            ['Check solar panel and inverter stock', 'pending', 0],
+            ['Prepare quotation for Bayanihan Grocery', 'in progress', 0],
+            ['Confirm installation crew schedule', 'pending', 0],
+            ['Inspect mounting rails and safety equipment', 'completed', -1],
+            ['Review Riverbend Farm monitoring report', 'completed', -1],
+            ['Receive solar panels for Del Rosario Learning Center', 'pending', 1],
+            ['Prepare wiring plan for Mabuhay Bakehouse', 'pending', 1],
+            ['Schedule customer handover and system briefing', 'pending', 2],
         ];
         foreach ($entries as $i => [$title, $status, $offset]) {
             Task::updateOrCreate(['id' => $i + 1], ['title' => $title, 'status' => $status, 'task_date' => today()->addDays($offset)->toDateString()]);

@@ -9,7 +9,7 @@ Captured October 30, 2026 from the running Laravel application. Desktop: 1440 px
 | 3 | `/profile` · `evidence/03-profile.png` | Mara Santos, mara, mara@example.com | Single sample user profile. Values come from users through Eloquent. |
 | 4 | `/about` · `evidence/04-about.png` | Student name, section, course, TSA3 title | About page identifying me as the developer. Soluna's explainer remains available. |
 | 5 | `/tasks` · `evidence/05-empty-search.png` | Nonmatching query, zero count, empty message | Search with no matching tasks. The empty state explains the result. |
-| 6 | `/tasks` · `evidence/06-matching-search.png` | Calibrate query and one matching row | Search with one matching task. Filtering does not change stored records. |
+| 6 | `/tasks` · `evidence/06-matching-search.png` | mounting query and one matching row | Search with one matching task. Filtering does not change stored records. |
 | 7 | `/` mobile · `evidence/07-mobile.png` | Brand, original Overview content, Menu button | Mobile Overview. The layout fits a narrow screen. |
 | 8 | `/` mobile · `evidence/08-mobile-menu.png` | Open menu with all six routes | Open mobile navigation. Menu opens it and Escape closes it. |
 | 9 | `/customers` · `evidence/09-customers.png` | Original five customers, stage controls, search | Preserved customer directory. Existing TFA6 features remain available. |

@@ -6,4 +6,4 @@
 <tr><td data-label="Task"><span class="account-name">{{ $task->title }}</span></td><td data-label="Status"><span class="status {{ $task->status === 'completed' ? 'status-active' : '' }}">{{ $task->status }}</span></td><td data-label="Scheduled date"><time datetime="{{ $task->task_date->toDateString() }}">{{ $task->task_date->format('M j, Y') }}</time></td></tr>
 @endforeach
 </tbody></table><p class="directory-empty" data-directory-empty @if($tasks->isNotEmpty()) hidden @endif>No tasks to display. Try another search or view the full schedule.</p></div>
-<div class="listing-note"><span aria-hidden="true">↗</span><p>{{ $todayOnly ? 'Only tasks dated today appear here. The Task List includes past and upcoming dates.' : 'These sample records match the earlier TSA1 dataset. Search changes only the visible rows.' }}</p></div>
+<div class="listing-note"><span aria-hidden="true">↗</span><p>{{ $todayOnly ? 'Only tasks dated today appear here. The Task List includes past and upcoming dates.' : 'These sample tasks cover Soluna solar supply and installation work. Search changes only the visible rows.' }}</p></div>

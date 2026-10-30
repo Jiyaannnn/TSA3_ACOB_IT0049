@@ -1,6 +1,6 @@
 # Soluna Tasks for Today — TSA3
 
-Laravel rebuild of my TSA1 Tasks for Today Management System, continued from TFA6 in a separate folder. I retained Soluna's branding and interactions and the original TSA1 task titles and sample user. Task management is an additional feature: the complete original Overview, Customer Accounts, and User Accounts remain active.
+Laravel rebuild of my TSA1 Tasks for Today Management System, continued from TFA6 in a separate folder. I retained Soluna's branding and interactions and the Soluna-specific solar tasks and the original sample user. Task management is an additional feature: the complete original Overview, Customer Accounts, and User Accounts remain active.
 
 **Student:** Jian Edward A. Acob · **Section:** BSITBA - TW32  
 **Course:** IT0049 - Web System Technologies · **Professor:** Mr. Von Erick Magbitang
@@ -49,7 +49,7 @@ A route calls a controller; the controller retrieves Eloquent models and passes 
 | tasks | id, title VARCHAR(150), status VARCHAR(20) default pending, task_date DATE, created_at, updated_at |
 | users | id, unique username VARCHAR(50), full_name VARCHAR(100), email VARCHAR(100), created_at |
 
-The original TSA1 task/user values are retained. The tasks updated_at column follows TSA3's explicit timestamps requirement. The User model disables updated_at to match TSA1. SQLite does not enforce VARCHAR lengths. The customers table retains all five TFA6 records. The new team_members table retains all five original team accounts and their display fields, keeping them separate from the single TSA3 user profile. Laravel cache/jobs migrations remain inherited. Migrations and the seeder are the reproducible database submission, so no database export is needed. Seeding an unchanged database twice retains nine tasks, one task-profile user, five customers, and five team members.
+Task examples now cover Soluna’s surveys, quotations, inventory, installations, monitoring, and handover. The TSA1 task structure and sample user are retained. The tasks updated_at column follows TSA3's explicit timestamps requirement. The User model disables updated_at to match TSA1. SQLite does not enforce VARCHAR lengths. The customers table retains all five TFA6 records. The new team_members table retains all five original team accounts and their display fields, keeping them separate from the single TSA3 user profile. Laravel cache/jobs migrations remain inherited. Migrations and the seeder are the reproducible database submission, so no database export is needed. Seeding an unchanged database twice retains nine tasks, one task-profile user, five customers, and five team members.
 
 ## Verification performed
 
