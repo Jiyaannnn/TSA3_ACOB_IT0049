@@ -9,7 +9,12 @@ class TaskController extends Controller
 {
     public function index(): View
     {
-        return view('pages.tasks', ['title' => 'Task List', 'activePage' => 'tasks', 'tasks' => Task::orderBy('task_date')->orderBy('id')->get(), 'todayOnly' => false]);
+        $tasks = Task::orderBy('task_date')->orderBy('id')->get();
+
+        // The hero counts and table use the same records to stay consistent.
+        $groups = collect(['pending', 'in progress', 'completed'])->mapWithKeys(fn (string $status): array => [$status => $tasks->where('status', $status)->count()]);
+
+        return view('pages.tasks', ['title' => 'Task List', 'activePage' => 'tasks', 'tasks' => $tasks, 'groups' => $groups, 'todayOnly' => false]);
     }
 
     public function today(): View

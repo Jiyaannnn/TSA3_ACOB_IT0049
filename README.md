@@ -40,7 +40,7 @@ The application uses **Asia/Manila** time. The seeder creates nine tasks across 
 | `/users` | UserController@index | Original five team accounts, search, and team filters through TeamMember. |
 | `/about` | PageController@about | Static application and student developer information. |
 
-A route calls a controller; the controller retrieves Eloquent models and passes them to Blade. Overview’s task section and Task List share `pages/task-table.blade.php`. Blade escapes output. Browser search filters visible rows without modifying the database. The original solar image, rooftop markers, energy explainer, and accessible mobile menu remain available. Both TFA6 account directories remain fully active, including the original home-page links and directory filters.
+A route calls a controller; the controller retrieves Eloquent models and passes them to Blade. Overview’s task section and Task List share `pages/task-table.blade.php`. Blade escapes output. The Task List hero filters tasks by Pending, In progress, or Completed, with counts from the same Eloquent collection. Search combines with the selected status; Show all or selecting the same status again resets the status filter. Browser filtering does not modify the database. The original solar image, rooftop markers, energy explainer, and accessible mobile menu remain available. Both TFA6 account directories remain fully active, including the original home-page links and directory filters.
 
 ## Database
 
