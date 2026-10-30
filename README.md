@@ -1,6 +1,6 @@
 # Soluna Tasks for Today — TSA3
 
-Laravel rebuild of my TSA1 Tasks for Today Management System, continued from TFA6 in a separate folder. I retained Soluna's branding and interactions and the original TSA1 task titles and sample user.
+Laravel rebuild of my TSA1 Tasks for Today Management System, continued from TFA6 in a separate folder. I retained Soluna's branding and interactions and the original TSA1 task titles and sample user. Task management is an additional feature: the complete original Overview, Customer Accounts, and User Accounts remain active.
 
 **Student:** Jian Edward A. Acob · **Section:** BSITBA - TW32  
 **Course:** IT0049 - Web System Technologies · **Professor:** Mr. Von Erick Magbitang
@@ -33,12 +33,14 @@ The application uses **Asia/Manila** time. The seeder creates nine tasks across 
 
 | Route | Action | Behavior |
 | --- | --- | --- |
-| `/` | TaskController@today | Eloquent `whereDate('task_date', today())` returns only today's tasks. |
+| `/` | TaskController@today | Original Overview plus Eloquent `whereDate('task_date', today())` returns only today's tasks. |
 | `/tasks` | TaskController@index | Returns every task ordered by task_date, then ID. |
-| `/profile` | UserController@index | Retrieves the single sample database user. |
+| `/profile` | UserController@profile | Retrieves the single sample database user. |
+| `/customers` | CustomerController@index | Original five customer accounts, search, and stage filters. |
+| `/users` | UserController@index | Original five team accounts, search, and team filters through TeamMember. |
 | `/about` | PageController@about | Static application and student developer information. |
 
-A route calls a controller; the controller retrieves Eloquent models and passes them to Blade. Welcome and Task List share `pages/task-table.blade.php`. Blade escapes output. Browser search filters visible rows without modifying the database. The original solar image, rooftop markers, energy explainer, and accessible mobile menu remain available. Account directory source files from TFA6 remain as inherited code but have no active routes in TSA3.
+A route calls a controller; the controller retrieves Eloquent models and passes them to Blade. Overview’s task section and Task List share `pages/task-table.blade.php`. Blade escapes output. Browser search filters visible rows without modifying the database. The original solar image, rooftop markers, energy explainer, and accessible mobile menu remain available. Both TFA6 account directories remain fully active, including the original home-page links and directory filters.
 
 ## Database
 
@@ -47,7 +49,7 @@ A route calls a controller; the controller retrieves Eloquent models and passes 
 | tasks | id, title VARCHAR(150), status VARCHAR(20) default pending, task_date DATE, created_at, updated_at |
 | users | id, unique username VARCHAR(50), full_name VARCHAR(100), email VARCHAR(100), created_at |
 
-The original TSA1 task/user values are retained. The tasks updated_at column follows TSA3's explicit timestamps requirement. The User model disables updated_at to match TSA1. SQLite does not enforce VARCHAR lengths. TFA6's unused customers and Laravel cache/jobs migrations remain inherited; the seeder populates only tasks and users. Migrations and the seeder are the reproducible database submission, so no database export is needed. Seeding an unchanged database twice retains nine tasks and one user.
+The original TSA1 task/user values are retained. The tasks updated_at column follows TSA3's explicit timestamps requirement. The User model disables updated_at to match TSA1. SQLite does not enforce VARCHAR lengths. The customers table retains all five TFA6 records. The new team_members table retains all five original team accounts and their display fields, keeping them separate from the single TSA3 user profile. Laravel cache/jobs migrations remain inherited. Migrations and the seeder are the reproducible database submission, so no database export is needed. Seeding an unchanged database twice retains nine tasks, one task-profile user, five customers, and five team members.
 
 ## Verification performed
 
@@ -57,9 +59,9 @@ php artisan test --compact
 vendor/bin/pint --dirty --format agent
 ```
 
-- 8 tests, 39 assertions passed: routes and 404, record counts and dates, date ordering, Manila midnight rollover, reseeding, empty tasks/profile, pending default, insert/update/delete, escaped HTML, duplicate username and missing-title rejection, and migration rollback/rebuild. Tests use isolated in-memory SQLite.
-- Browser: all four pages at 390, 768, and 1440 px had no horizontal overflow; matching/nonmatching search returned one/zero tasks; Menu and Escape worked; rooftop Crew and About Inverter updated their text. Browser error checks returned no uncaught errors.
-- Automated axe checks on Welcome and Task List reported zero violations after the table-heading contrast fix. Background/gradient contrast checks remained incomplete and are not claimed as a full accessibility certification.
+- 9 tests, 53 assertions passed: six routes, original directories and Overview content, 404, record counts and dates, date ordering, Manila midnight rollover, reseeding, empty tasks/profile, pending default, insert/update/delete, escaped HTML, duplicate username and missing-title rejection, and migration rollback/rebuild. Tests use isolated in-memory SQLite.
+- Browser: all six pages at 390, 768, and 1440 px had no horizontal overflow; matching/nonmatching search returned one/zero tasks; Menu and Escape worked; rooftop Crew and About Inverter updated their text. Browser error checks returned no uncaught errors.
+- Earlier automated axe checks on the task-only Welcome and Task List reported zero violations after the table-heading contrast fix. Background/gradient contrast checks remained incomplete and are not claimed as a full accessibility certification.
 - No editing forms, uploads, authentication, or task-status-changing controls are required or provided.
 
 ## Evidence and presentation

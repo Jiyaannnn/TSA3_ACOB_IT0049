@@ -3,7 +3,7 @@
 | Requirement | Result |
 | --- | --- |
 | Continue existing work in a separate folder | Completed: TSA3 copy of TFA6; original projects untouched. |
-| Four required routes | Completed and tested: /, /tasks, /profile, /about. |
+| Four required routes plus both original account routes | Completed and tested: /, /tasks, /profile, /about, /customers, /users. Original Overview and both directories are preserved. |
 | Task migration and pending default | Completed; task fields and timestamps defined; default tested. |
 | Users schema matching TSA1 | Completed: unique username, full_name, email, created_at. |
 | At least eight tasks, three dates, including today | Completed: nine tasks across four relative dates; four on seed day. |
@@ -11,9 +11,9 @@
 | Task and User Eloquent models | Completed with appropriate controller queries. |
 | Date filter and full chronological list | Completed; exclusion, order, and midnight rollover tested. |
 | Developer identity | Completed on About. |
-| MVC separation | Routes, controllers, models, and shared Blade views provided. |
+| MVC separation | Routes, controllers, models, and shared Blade views provided; TeamMember preserves five existing team accounts separately. |
 | README and reproducible database | Completed: setup commands, migrations, and seeder included. |
-| Real screenshots and report | Eight figures captured; separate report based on provided reference. |
+| Real screenshots and report | Ten figures captured; separate report based on provided reference. |
 | AI conversation or integration | Not required by handout; none fabricated. |
 | GitHub source link | Published public repository; remote source and commit verified. See README link. |
 | Hosted working application link | Unmet handout item; omitted under explicit GitHub-only instruction. |

@@ -1,6 +1,6 @@
 <section class="listing-heading"><div><p class="eyebrow">{{ $todayOnly ? today()->format('F j, Y').' · ASIA/MANILA' : 'THE COMPLETE SCHEDULE' }}</p><h2>{{ $todayOnly ? 'Tasks for today' : 'Task List' }}</h2><p>{{ $tasks->count() }} {{ $tasks->count() === 1 ? 'task' : 'tasks' }} in this view.</p></div><span class="read-only">READ-ONLY WORKSPACE</span></section>
 <div class="directory-tools"><label for="directory-search">Search tasks by title, status, or date</label><div class="search-field"><input id="directory-search" type="search" data-directory-search placeholder="Search tasks…" autocomplete="off"></div><p role="status" aria-live="polite" data-directory-count>{{ $tasks->count() }} tasks shown</p></div>
-<div class="table-wrap"><table data-directory-table><thead><tr><th scope="col">Task</th><th scope="col">Status</th><th scope="col">Scheduled date</th></tr></thead><tbody>
+<div class="table-wrap"><table data-directory-table data-directory-kind="tasks"><thead><tr><th scope="col">Task</th><th scope="col">Status</th><th scope="col">Scheduled date</th></tr></thead><tbody>
 {{-- Escaped Blade values prevent stored HTML from becoming executable markup. --}}
 @foreach($tasks as $task)
 <tr><td data-label="Task"><span class="account-name">{{ $task->title }}</span></td><td data-label="Status"><span class="status {{ $task->status === 'completed' ? 'status-active' : '' }}">{{ $task->status }}</span></td><td data-label="Scheduled date"><time datetime="{{ $task->task_date->toDateString() }}">{{ $task->task_date->format('M j, Y') }}</time></td></tr>

@@ -48,7 +48,8 @@ if (directorySearch && directoryTable) {
             row.hidden = !(matchesSearch && matchesGroup);
             visible += Number(!row.hidden);
         }
-        count.textContent = `${visible} ${visible === 1 ? 'task' : 'tasks'} shown${selectedGroup ? ' · ' + selectedGroup : ''}`;
+        const noun = directoryTable.dataset.directoryKind === 'tasks' ? 'task' : 'account';
+        count.textContent = `${visible} ${visible === 1 ? noun : noun + 's'} shown${selectedGroup ? ' · ' + selectedGroup : ''}`;
         empty.hidden = visible !== 0;
     };
 

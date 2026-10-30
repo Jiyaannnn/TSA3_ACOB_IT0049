@@ -21,9 +21,11 @@
         <a class="brand" href="{{ route('home') }}" aria-label="Soluna home"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="brand-text">soluna<span>solar supply & installation</span></span></a>
         <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav"><span>Menu</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-            <a href="{{ route('home') }}" @if($activePage === 'home') aria-current="page" @endif>Welcome</a>
+            <a href="{{ route('home') }}" @if($activePage === 'home') aria-current="page" @endif>Overview</a>
+            <a href="{{ route('customers.index') }}" @if($activePage === 'customers') aria-current="page" @endif>Customer accounts</a>
+            <a href="{{ route('users.index') }}" @if($activePage === 'users') aria-current="page" @endif>User accounts</a>
             <a href="{{ route('tasks.index') }}" @if($activePage === 'tasks') aria-current="page" @endif>Task List</a>
-            <a href="{{ route('profile') }}" @if($activePage === 'profile') aria-current="page" @endif>Profile</a>
+            <a href="{{ route('profile') }}" @if($activePage === 'profile') aria-current="page" @endif>Task Profile</a>
             <a href="{{ route('about') }}" @if($activePage === 'about') aria-current="page" @endif>About</a>
         </nav>
     </header>

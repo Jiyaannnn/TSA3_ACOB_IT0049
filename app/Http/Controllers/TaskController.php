@@ -15,6 +15,6 @@ class TaskController extends Controller
     public function today(): View
     {
         // Filtering in Eloquent keeps other dates out of the Welcome page response.
-        return view('pages.home', ['title' => 'Welcome', 'activePage' => 'home', 'tasks' => Task::whereDate('task_date', today())->orderBy('id')->get(), 'todayOnly' => true]);
+        return view('pages.home', ['title' => 'Overview', 'activePage' => 'home', 'tasks' => Task::whereDate('task_date', today())->orderBy('id')->get(), 'todayOnly' => true]);
     }
 }

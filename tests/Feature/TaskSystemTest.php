@@ -15,15 +15,25 @@ class TaskSystemTest extends TestCase
     public function test_required_pages_and_seeded_data(): void
     {
         $this->seed();
-        foreach (['/', '/tasks', '/profile', '/about'] as $path) {
+        foreach (['/', '/tasks', '/profile', '/about', '/customers', '/users'] as $path) {
             $this->get($path)->assertOk();
         }
         $this->assertDatabaseCount('tasks', 9);
         $this->assertDatabaseCount('users', 1);
+        $this->assertDatabaseCount('team_members', 5);
+        $this->assertDatabaseCount('customers', 5);
         $this->assertSame(4, Task::distinct()->count('task_date'));
         $this->get('/profile')->assertSee('Mara Santos')->assertSee('mara@example.com');
         $this->get('/about')->assertSee('Jian Edward A. Acob');
         $this->get('/missing')->assertNotFound();
+    }
+
+    public function test_existing_directories_and_overview_are_preserved(): void
+    {
+        $this->seed();
+        $this->get('/')->assertSee('Powering plans.')->assertSee('Customer accounts')->assertSee('Tasks for today');
+        $this->get('/customers')->assertSee('Santos Family Residence')->assertSee('Riverbend Farm');
+        $this->get('/users')->assertSee('Jian Acob')->assertSee('Sean Macaldo')->assertDontSee('Mara Santos');
     }
 
     public function test_today_filter_and_date_order(): void
@@ -49,6 +59,8 @@ class TaskSystemTest extends TestCase
         $this->seed();
         $this->assertDatabaseCount('tasks', 9);
         $this->assertDatabaseCount('users', 1);
+        $this->assertDatabaseCount('team_members', 5);
+        $this->assertDatabaseCount('customers', 5);
         Task::query()->delete();
         User::query()->delete();
         $this->get('/')->assertSee('No tasks to display');
