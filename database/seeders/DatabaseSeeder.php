@@ -52,7 +52,7 @@ class DatabaseSeeder extends Seeder
         foreach ($entries as $i => [$title, $status, $offset]) {
             Task::updateOrCreate(['id' => $i + 1], ['title' => $title, 'status' => $status, 'task_date' => today()->addDays($offset)->toDateString()]);
         }
-        User::updateOrCreate(['username' => 'mara'], ['full_name' => 'Mara Santos', 'email' => 'mara@example.com']);
+        User::updateOrCreate(['id' => 1], ['username' => 'jacob', 'full_name' => 'Jian Edward A. Acob', 'email' => 'jacob@example.com']);
 
     }
 }

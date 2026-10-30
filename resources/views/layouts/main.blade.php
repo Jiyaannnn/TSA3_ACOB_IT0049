@@ -25,7 +25,7 @@
             <a href="{{ route('customers.index') }}" @if($activePage === 'customers') aria-current="page" @endif>Customer accounts</a>
             <a href="{{ route('users.index') }}" @if($activePage === 'users') aria-current="page" @endif>User accounts</a>
             <a href="{{ route('tasks.index') }}" @if($activePage === 'tasks') aria-current="page" @endif>Task List</a>
-            <a href="{{ route('profile') }}" @if($activePage === 'profile') aria-current="page" @endif>Task Profile</a>
+            <a href="{{ route('profile') }}" @if($activePage === 'profile') aria-current="page" @endif>Profile</a>
             <a href="{{ route('about') }}" @if($activePage === 'about') aria-current="page" @endif>About</a>
         </nav>
     </header>

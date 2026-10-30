@@ -33,3 +33,7 @@ body{background-color:#f7f9f4;background-image:radial-gradient(ellipse at 95% 12
 
 /* Darker table labels keep the existing pale header readable. */
 thead th { color: #365260; }
+
+.profile-hero .energy-description { margin-top: 18px; }
+.profile-hero .energy-description p { color: #bed6dd; font-size: 13px; line-height: 1.7; }
+.profile-hero .console-filter { grid-template-columns: 12px 1fr 14px; }

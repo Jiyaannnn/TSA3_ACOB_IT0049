@@ -7,7 +7,7 @@
 | Task migration and pending default | Completed; task fields and timestamps defined; default tested. |
 | Users schema matching TSA1 | Completed: unique username, full_name, email, created_at. |
 | At least eight tasks, three dates, including today | Completed: nine tasks across four relative dates; four on seed day. |
-| Exactly one seeded user | Completed: original Mara Santos sample. |
+| Exactly one seeded user | Completed: Jian Edward A. Acob student profile. |
 | Task and User Eloquent models | Completed with appropriate controller queries. |
 | Date filter and full chronological list | Completed; exclusion, order, and midnight rollover tested. |
 | Developer identity | Completed on About. |

@@ -104,3 +104,15 @@ for (const marker of rooftopMarkers) {
         }
     });
 }
+
+// Profile topics update one shared panel and announce the selected explanation.
+const profileTopics = [...document.querySelectorAll('[data-profile-topic]')];
+for (const button of profileTopics) {
+    button.addEventListener('click', () => {
+        document.querySelector('[data-profile-detail-title]').textContent = button.dataset.profileTitle;
+        document.querySelector('[data-profile-detail-copy]').textContent = button.dataset.profileCopy;
+        for (const topic of profileTopics) {
+            topic.setAttribute('aria-pressed', String(topic === button));
+        }
+    });
+}

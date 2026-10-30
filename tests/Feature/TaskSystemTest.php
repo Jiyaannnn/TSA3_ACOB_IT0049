@@ -23,7 +23,7 @@ class TaskSystemTest extends TestCase
         $this->assertDatabaseCount('team_members', 5);
         $this->assertDatabaseCount('customers', 5);
         $this->assertSame(4, Task::distinct()->count('task_date'));
-        $this->get('/profile')->assertSee('Mara Santos')->assertSee('mara@example.com');
+        $this->get('/profile')->assertSee('Jian Edward A. Acob')->assertSee('jacob@example.com');
         $this->get('/about')->assertSee('Jian Edward A. Acob');
         $this->get('/missing')->assertNotFound();
     }
@@ -33,7 +33,7 @@ class TaskSystemTest extends TestCase
         $this->seed();
         $this->get('/')->assertSee('Powering plans.')->assertSee('Customer accounts')->assertSee('Tasks for today');
         $this->get('/customers')->assertSee('Santos Family Residence')->assertSee('Riverbend Farm');
-        $this->get('/users')->assertSee('Jian Acob')->assertSee('Sean Macaldo')->assertDontSee('Mara Santos');
+        $this->get('/users')->assertSee('Jian Acob')->assertSee('Sean Macaldo')->assertDontSee('jacob@example.com');
     }
 
     public function test_today_filter_and_date_order(): void
@@ -83,7 +83,7 @@ class TaskSystemTest extends TestCase
     {
         $this->seed();
         $this->expectException(QueryException::class);
-        User::create(['username' => 'mara', 'full_name' => 'Duplicate', 'email' => 'duplicate@example.com']);
+        User::create(['username' => 'jacob', 'full_name' => 'Duplicate', 'email' => 'duplicate@example.com']);
     }
 
     public function test_missing_title_is_rejected(): void
